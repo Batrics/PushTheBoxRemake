@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 boxDirTarget;
     public Vector3 playerDirection;
     private Rigidbody rb;
+    private BoxScript boxScript;
 
     public float moveSpeed = 5f;
     public float rotationSpeed = 2;
@@ -51,24 +52,19 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(moveVelocity.x, rb.velocity.y, moveVelocity.z);
         }
     }
-    private void MoveBox(Rigidbody boxRb, Rigidbody playerRb, Vector3 playerDir) {
-        Vector3 moveDirectionBox = playerDir;
-        Vector3 moveVelocityBox = moveDirectionBox * (moveSpeed - 2f);
-
-        boxRb.velocity = new Vector3(boxDirTarget.x, 0, boxDirTarget.z);
-        playerRb.velocity = new Vector3(moveVelocityBox.x, rb.velocity.y, moveVelocityBox.z);
+    private void MoveBox(Rigidbody boxRb, Rigidbody playerRb, Vector3 playerdir) {
+        Vector3 moveVelocityBox = boxScript.boxPushTarget * (moveSpeed - (moveSpeed * 80f/100f));
+        Vector3 moveVelocityPlayer = playerdir * (moveSpeed - (80/100 * moveSpeed));
+        
+        boxRb.velocity = new Vector3(moveVelocityBox.x, 0, moveVelocityBox.z);
+        playerRb.velocity = new Vector3(moveVelocityPlayer.x, rb.velocity.y, moveVelocityPlayer.z);
     }
 
     private void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.CompareTag("Box")) {
             isPush = true;
-            if((playerDirection.x == 0f && playerDirection.z != 0f) || (playerDirection.x != 0f && playerDirection.z == 0f)) {
-                boxDirTarget = playerDirection;
-            }
-            else {
-                boxDirTarget = Vector3.zero;
-            }
             boxRb = collision.rigidbody;
+            boxScript = boxRb.GetComponent<BoxScript>();
             print("IsPush : " + isPush);
         }
     }
