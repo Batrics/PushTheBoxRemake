@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         
         // Cek apakah player masih bergerak, jika iya, aktifkan isPush
-        if (moveInput.x == boxScript.boxPushTargetDir.x && moveInput.y == boxScript.boxPushTargetDir.z)
+        if (playerDirection == boxScript.boxPushTargetDir)
         {
             isPush = true; // Setelah 0.5 detik, set isPush kembali ke true
             StartCoroutine(ResetIsPush()); // Mulai ulang coroutine jika masih bergerak
