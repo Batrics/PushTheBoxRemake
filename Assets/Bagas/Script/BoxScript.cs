@@ -9,9 +9,14 @@ public class BoxScript : MonoBehaviour
     public RaycastHit hitInfo;
     private List<Ray> rays = new List<Ray>();
     private Vector3 boxPushDir;
-    public Vector3 boxPushTarget;
+    public Vector3 boxPushTargetDir;
     public bool raycastHit;
     public float rayLength = 5;
+
+
+    public float moveSpeed = 5f; // Kecepatan perpindahan antar grid
+    public Vector3 gridSize = new Vector3(1f, 0f, 1f); // Ukuran grid
+    private Vector3 targetPos; // Posisi tujuan player
 
     private void Start() {
         print(rays.Count);
@@ -27,7 +32,8 @@ public class BoxScript : MonoBehaviour
         rays.Add(new Ray());
         rays.Add(new Ray());
         rays.Add(new Ray());
-        print(rays.Count);
+
+        targetPos = transform.position;
     }
     private void Update() {
         ///Forward
@@ -53,30 +59,54 @@ public class BoxScript : MonoBehaviour
         foreach (var ray in rays){
             BoxRay(ray);
         }
+
+        // if (Input.GetKeyDown(KeyCode.W)) // Ke atas
+        // {
+        //     targetPos += new Vector3(0f, 0f, gridSize.z);
+        // }
+        // if (Input.GetKeyDown(KeyCode.S)) // Ke bawah
+        // {
+        //     targetPos += new Vector3(0f, 0f, -gridSize.z);
+        // }
+        // if (Input.GetKeyDown(KeyCode.A)) // Ke kiri
+        // {
+        //     targetPos += new Vector3(-gridSize.x, 0f, 0f);
+        // }
+        // if (Input.GetKeyDown(KeyCode.D)) // Ke kanan
+        // {
+        //     targetPos += new Vector3(gridSize.x, 0f, 0f);
+        // }
+
+        // MoveBox(targetPos, gameObject);
+
+    }
+
+    public void MoveBox(Vector3 targetPos, GameObject playerG, float moveSpeed = 5f) {
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
     }
 
     private void BoxRay(Ray ray) {
-        if(Physics.Raycast(ray, out hitInfo, rayLength, layerMask, QueryTriggerInteraction.Ignore)) {
+        if(Physics.Raycast(ray, out hitInfo, rayLength, layerMask, QueryTriggerInteraction.Collide)) {
             Debug.Log("RaycastHit");
             boxPushDir = ray.direction;
 
             if(boxPushDir == Vector3.forward) {
-                boxPushTarget = Vector3.back;
+                boxPushTargetDir = Vector3.back;
             }
             else if(boxPushDir == Vector3.back) {
-                boxPushTarget = Vector3.forward;
+                boxPushTargetDir = Vector3.forward;
             }
             else if(boxPushDir == Vector3.right) {
-                boxPushTarget = Vector3.left;
+                boxPushTargetDir = Vector3.left;
             }
             else if(boxPushDir == Vector3.left) {
-                boxPushTarget = Vector3.right;
+                boxPushTargetDir = Vector3.right;
             }
             Debug.DrawRay(ray.origin, ray.direction * rayLength, color: Color.white);
         }
         else {
             Debug.Log("Raycast Null");
-            // boxPushDir = Vector3.zero;
+            boxPushDir = Vector3.zero;
             Debug.DrawRay(ray.origin, ray.direction * rayLength, color: Color.blue);
         }
     }
