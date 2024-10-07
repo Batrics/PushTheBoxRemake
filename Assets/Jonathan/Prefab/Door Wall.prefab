@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preset: 0
   onEnableBehaviour: 0
-  onDisableBehaviour: 2
+  onDisableBehaviour: 0
 --- !u!114 &123427662686197059
 MonoBehaviour:
   m_ObjectHideFlags: 0
