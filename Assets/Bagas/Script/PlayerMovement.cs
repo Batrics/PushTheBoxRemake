@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
-using Cinemachine;
+using UnityEngine.UIElements;
+using Unity.Mathematics;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     private NewBoxScript boxScript;
     private RaycastHit hitInfo;
+    public GameObject playerSprite;
 
     public float moveSpeed = 5f;
     public float rotationSpeed = 2;
@@ -85,34 +87,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void PlayerLogic(Rigidbody rb)
-{
-    // Mendapatkan referensi ke CinemachineBrain untuk menentukan kamera aktif
-    CinemachineBrain cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
-    Transform cameraTransform;
-
-    // Cek apakah ada CinemachineBrain yang mengelola kamera aktif
-    if (cinemachineBrain != null && cinemachineBrain.ActiveVirtualCamera != null)
     {
-        // Jika Cinemachine digunakan, ambil transform kamera virtual yang aktif
-        cameraTransform = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.transform;
+        // Dapatkan referensi ke kamera utama
+        Transform cameraTransform = Camera.main.transform;
+
+        // Menghitung arah kamera pada sumbu horizontal (agar tidak terpengaruh oleh kemiringan vertikal kamera)
+        Vector3 cameraForward = new Vector3(cameraTransform.forward.x, 0, cameraTransform.forward.z).normalized;
+        Vector3 cameraRight = new Vector3(cameraTransform.right.x, 0, cameraTransform.right.z).normalized;
+
+        // Menghitung arah player berdasarkan input dan arah kamera
+        playerDirection = (cameraRight * moveInput.x + cameraForward * moveInput.y).normalized;
+
+        // Mengatur kecepatan gerakan player
+        Vector3 moveVelocity = playerDirection * moveSpeed;
+        rb.velocity = new Vector3(moveVelocity.x, rb.velocity.y, moveVelocity.z);
+
+        if(playerDirection == Vector3.left) {
+            playerSprite.transform.eulerAngles = new Vector3(-30f, 0f, 0f);
+        }
+        else if(playerDirection == Vector3.right) {
+            playerSprite.transform.eulerAngles = new Vector3(30f, 180f, 0f);
+        }
     }
-    else
-    {
-        // Fallback ke kamera utama jika Cinemachine tidak digunakan
-        cameraTransform = Camera.main.transform;
-    }
-
-    // Menghitung arah kamera pada sumbu horizontal (agar tidak terpengaruh oleh kemiringan vertikal kamera)
-    Vector3 cameraForward = new Vector3(cameraTransform.forward.x, 0, cameraTransform.forward.z).normalized;
-    Vector3 cameraRight = new Vector3(cameraTransform.right.x, 0, cameraTransform.right.z).normalized;
-
-    // Menghitung arah player berdasarkan input dan arah kamera
-    playerDirection = (cameraRight * moveInput.x + cameraForward * moveInput.y).normalized;
-
-    // Mengatur kecepatan gerakan player
-    Vector3 moveVelocity = playerDirection * moveSpeed;
-    rb.velocity = new Vector3(moveVelocity.x, rb.velocity.y, moveVelocity.z);
-}
 
 
     private void MoveBox()
