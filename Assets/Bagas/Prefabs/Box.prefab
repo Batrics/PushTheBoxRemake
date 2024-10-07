@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7365021576183485639}
   - component: {fileID: 6915222383391504508}
   - component: {fileID: 4619809737862074258}
+  - component: {fileID: 2660025393206909275}
   m_Layer: 6
   m_Name: Box
   m_TagString: Box
@@ -114,7 +115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7850642615217825521}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -131,5 +132,27 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2660025393206909275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850642615217825521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb0e0c09a050884da54fb0b12973f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerMovement: {fileID: 0}
+  playerDir: {x: 0, y: 0, z: 0}
+  boxDir: {x: 0, y: 0, z: 0}
+  gridSize: {x: 1, y: 0, z: 1}

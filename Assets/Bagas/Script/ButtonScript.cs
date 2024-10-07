@@ -8,7 +8,7 @@ public class ButtonScript : MonoBehaviour
     public ButtonDoorScript buttonDoorScript;
 
     private void Start() {
-        buttonDoorScript = transform.parent.parent.GetComponent<ButtonDoorScript>();
+        buttonDoorScript = transform.parent.GetComponent<ButtonDoorScript>();
     }
 
     private void OnTriggerEnter(Collider other) {
