@@ -13,13 +13,15 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update() {
         if(playerMovement != null) {
+            Vector2 dir = new Vector2(playerMovement.boxDirTarget.x, playerMovement.boxDirTarget.z);
+            
             if(playerMovement.moveInput != Vector2.zero) {
                 playerAnimator.SetBool("Walk", true);
             }
             else {
                 playerAnimator.SetBool("Walk", false);
             }
-            playerAnimator.SetBool("Push", playerMovement.isBoxCollide);
+            playerAnimator.SetBool("Push", playerMovement.pushAnim);
         }
     }
 

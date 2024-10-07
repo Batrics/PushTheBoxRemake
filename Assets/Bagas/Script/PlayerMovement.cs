@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isPush = false;
     public bool isBoxCollide = false;
+    public bool pushAnim = false;
     private bool delayRunning = false;
     private bool hasMovedBox = false;
 
@@ -169,10 +170,35 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(HandlePushDelay());
             }
 
+
             boxRb = collision.rigidbody;
             boxScript = boxRb.GetComponent<NewBoxScript>();
             targetPosBox = boxRb.transform.position;
             // SetPos(boxRb.transform);
+            Debug.Log("IsPush: " + isPush);
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            if(playerDirection == boxDirTarget) {
+                pushAnim = true;
+            }
+            else {
+                pushAnim = false;
+            }
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Box"))
+        {
+            pushAnim = false;
+            isBoxCollide = false;
+            isPush = false; 
+            // boxDirTarget = Vector3.zero;
+            hasMovedBox = false; // Reset hasMovedBox ketika player keluar dari collision
             Debug.Log("IsPush: " + isPush);
         }
     }
@@ -185,17 +211,6 @@ public class PlayerMovement : MonoBehaviour
         delayRunning = false; 
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Box"))
-        {
-            isBoxCollide = false;
-            isPush = false; 
-            // boxDirTarget = Vector3.zero;
-            hasMovedBox = false; // Reset hasMovedBox ketika player keluar dari collision
-            Debug.Log("IsPush: " + isPush);
-        }
-    }
 
     private Vector3 CreateRaycast(float rayLength, LayerMask boxLayer) {
         Ray ray = new Ray(new Vector3(transform.position.x, 0.5f, transform.position.z), Vector3.forward);
