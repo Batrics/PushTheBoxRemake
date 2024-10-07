@@ -19,20 +19,17 @@ public class ButtonDoorScript : MonoBehaviour
     }
 
     private void Update() {
-        // Check if the number of clicked buttons equals the total number of buttons
         if (clickedInt == buttonScripts.Count) {
             allButtonClicked = true;
         } else {
             allButtonClicked = false;
         }
 
-        // If all buttons are clicked and the door is not open yet, play the open animation
         if (allButtonClicked && !open) {
             dOTweenAnimation.DORestart(); // Restart to make sure it resets correctly
             dOTweenAnimation.DOPlay();    // Play the animation forward
             open = true; // mark the door as open
         }
-        // If not all buttons are clicked and the door is currently open, play the close animation
         else if (!allButtonClicked && open) {
             // dOTweenAnimation.DORestart(); // Restart the animation to reset it
             dOTweenAnimation.DOPlayBackwards(); // Play the animation backwards to close the door
