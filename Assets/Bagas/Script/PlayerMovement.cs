@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit hitInfo;
     public GameObject playerSprite;
     public AudioManager audioManager;
+    public GameManager gameManager;
 
     public float moveSpeed = 5f;
     public float rotationSpeed = 2;
@@ -31,14 +32,12 @@ public class PlayerMovement : MonoBehaviour
     private bool hasMovedBox = false;
     private bool isWalkingSFXPlaying = false;
     private bool isPushingSFXPlaying = false;
+    private bool isRestart = false;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void OnMove(InputAction.CallbackContext context) {
-        moveInput = context.ReadValue<Vector2>();
-    }
 
     private void Update() {
         if (isBoxCollide && isPush && !hasMovedBox) {
@@ -61,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
                 isPush = true;
                 StartCoroutine(ResetIsPush());
             }
+        }
+
+        if(isRestart) {
+            gameManager.Restart();
         }
 
         boxDirTarget = CreateRaycast(.5f, pushLayer);
@@ -220,5 +223,14 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(ray3.origin, ray3.direction * rayLength, Color.blue);
             return Vector3.zero;
         }
+    }
+
+    //----------------------------------------------------------------------------- Input ------------------------------------------------------------------------------//
+    public void OnMove(InputAction.CallbackContext context) {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnRestart(InputAction.CallbackContext context) {
+        isRestart = context.performed;
     }
 }

@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "d6fc08ab-0a15-4e6c-9b9c-ae14abd57648",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "284e0a9d-2824-439f-977e-f9a8fd20ed37",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

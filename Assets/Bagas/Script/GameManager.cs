@@ -16,9 +16,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetSavePoint() {
         SaveManager saveManagerPlayer = player.GetComponent<SaveManager>();
+        SaveManager saveManagerTimer = GameObject.Find("Timer").GetComponent<SaveManager>();
+
         PlayerPrefs.DeleteKey(saveManagerPlayer.saveName + "X");
         PlayerPrefs.DeleteKey(saveManagerPlayer.saveName + "Y");
         PlayerPrefs.DeleteKey(saveManagerPlayer.saveName + "Z");
+        PlayerPrefs.DeleteKey(saveManagerTimer.saveName);
     }
 
     public void LoadPos(int level) {
