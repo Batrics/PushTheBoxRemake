@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public List<Transform> levelGo = new List<Transform>();
     public Transform player;
+    public AudioManager audioManager;
     public int level;
 
     private void Start() {
@@ -14,7 +15,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void ResetSavePoint() {
-        PlayerPrefs.DeleteAll();
+        SaveManager saveManagerPlayer = player.GetComponent<SaveManager>();
+        PlayerPrefs.DeleteKey(saveManagerPlayer.saveName + "X");
+        PlayerPrefs.DeleteKey(saveManagerPlayer.saveName + "Y");
+        PlayerPrefs.DeleteKey(saveManagerPlayer.saveName + "Z");
     }
 
     public void LoadPos(int level) {
@@ -33,6 +37,9 @@ public class GameManager : MonoBehaviour
             print("X : " + PlayerPrefs.GetFloat(saveManagerPlayer.saveName + "X"));
             print("Y : " + PlayerPrefs.GetFloat(saveManagerPlayer.saveName + "Y"));
             print("Z : " + PlayerPrefs.GetFloat(saveManagerPlayer.saveName + "Z"));
+        }
+        else {
+            print("SavePoint = null");
         }
     }
     public void Restart() {
