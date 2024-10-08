@@ -3608,7 +3608,7 @@ PlayableDirector:
   - key: {fileID: 269847276080607923, guid: 378dfa632cb28534e9afe66e704f2054, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: -708412763096692282, guid: 378dfa632cb28534e9afe66e704f2054, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: -7034966128235202005, guid: 378dfa632cb28534e9afe66e704f2054, type: 2}
     value: {fileID: 1182328495}
   - key: {fileID: 109188024612363670, guid: 378dfa632cb28534e9afe66e704f2054, type: 2}
@@ -10925,17 +10925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cd817ae85443549956a5ddff63bc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelGo:
-  - {fileID: 1165274583}
-  - {fileID: 1246653102}
-  - {fileID: 1930526889}
-  - {fileID: 1235292357}
-  - {fileID: 257278659}
-  - {fileID: 2045361816}
-  - {fileID: 1576360619}
-  - {fileID: 1855265504}
-  - {fileID: 378071760}
-  - {fileID: 1088684679}
   player: {fileID: 1357093710}
   audioManager: {fileID: 0}
   level: 2
@@ -13138,7 +13127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &354579665
 Transform:
   m_ObjectHideFlags: 0
@@ -20984,7 +20973,7 @@ PlayableDirector:
   - key: {fileID: 5683642686174449563, guid: 549c14233de08f044948142ef2adb4c3, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: -1470766071659554094, guid: 549c14233de08f044948142ef2adb4c3, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: -6726055030734927299, guid: 549c14233de08f044948142ef2adb4c3, type: 2}
     value: {fileID: 1182328495}
   - key: {fileID: -2361644342570436186, guid: 549c14233de08f044948142ef2adb4c3, type: 2}
@@ -21194,7 +21183,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 888663181747184377, guid: ca75884b9e51fa847997de367d1c5f28, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: -8279141912714551729, guid: ca75884b9e51fa847997de367d1c5f28, type: 2}
     value: {fileID: 1182328495}
   - key: {fileID: -7900834325628684875, guid: ca75884b9e51fa847997de367d1c5f28, type: 2}
@@ -48521,7 +48510,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -54496,7 +54485,7 @@ PlayableDirector:
   - key: {fileID: -6308493764322613730, guid: 90e34d323a40cec4a99b7e139e69e2ea, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: -4391777102621191855, guid: 90e34d323a40cec4a99b7e139e69e2ea, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: 2099850336553151633, guid: 90e34d323a40cec4a99b7e139e69e2ea, type: 2}
     value: {fileID: 1544074401}
   - key: {fileID: -3261540168900264353, guid: 90e34d323a40cec4a99b7e139e69e2ea, type: 2}
@@ -60676,7 +60665,7 @@ PlayableDirector:
   - key: {fileID: -3864116370952963553, guid: 8ff20418df3121a4cb6de0bbad3ae8ab, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: 3864120898810324981, guid: 8ff20418df3121a4cb6de0bbad3ae8ab, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: -8923642852674137076, guid: 8ff20418df3121a4cb6de0bbad3ae8ab, type: 2}
     value: {fileID: 1182328495}
   - key: {fileID: 389483362848174617, guid: 8ff20418df3121a4cb6de0bbad3ae8ab, type: 2}
@@ -60956,7 +60945,7 @@ PlayableDirector:
   - key: {fileID: -2803424224108083349, guid: a2fc03e419468f645be3769c429ade47, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: 3963936386218393220, guid: a2fc03e419468f645be3769c429ade47, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: -6062063619311653063, guid: a2fc03e419468f645be3769c429ade47, type: 2}
     value: {fileID: 1802776899}
   - key: {fileID: -771921891663636781, guid: a2fc03e419468f645be3769c429ade47, type: 2}
@@ -62804,7 +62793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1772044856
 Transform:
   m_ObjectHideFlags: 0
@@ -67767,7 +67756,7 @@ PlayableDirector:
   - key: {fileID: -6029170217048287200, guid: 35905bbb4c0a89e4db7d729057dbc5ee, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: -8788346663406579655, guid: 35905bbb4c0a89e4db7d729057dbc5ee, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: 3031409781730741955, guid: 35905bbb4c0a89e4db7d729057dbc5ee, type: 2}
     value: {fileID: 460957955}
   - key: {fileID: -6526786042763462807, guid: 35905bbb4c0a89e4db7d729057dbc5ee, type: 2}
@@ -67989,7 +67978,7 @@ PlayableDirector:
   - key: {fileID: 5858539562748077363, guid: 94c3c4b327136c54abe527d23f38d3ad, type: 2}
     value: {fileID: 1879709672}
   - key: {fileID: 7718913913299649802, guid: 94c3c4b327136c54abe527d23f38d3ad, type: 2}
-    value: {fileID: 1357093710}
+    value: {fileID: 1357093719}
   - key: {fileID: 442991218520066733, guid: 94c3c4b327136c54abe527d23f38d3ad, type: 2}
     value: {fileID: 802368788}
   - key: {fileID: -6059532601993733580, guid: 94c3c4b327136c54abe527d23f38d3ad, type: 2}
@@ -70345,6 +70334,10 @@ PrefabInstance:
     - target: {fileID: 1133380129954683103, guid: 2148f83b25b15f34082e0687671108ca, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976887077396400472, guid: 2148f83b25b15f34082e0687671108ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1976887077396400472, guid: 2148f83b25b15f34082e0687671108ca, type: 3}
       propertyPath: m_ActionEvents.Array.size
