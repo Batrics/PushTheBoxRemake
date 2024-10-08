@@ -6,6 +6,7 @@ public class SaveManager : MonoBehaviour
 {
     public string saveName;
 
+    //after cutscene Level
     public void GameObjectSavingPosition() {
         SavingPos(transform.position);
     }

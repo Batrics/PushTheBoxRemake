@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Transform> levelGo = new List<Transform>();
+    // public List<Transform> levelGo = new List<Transform>();
     public Transform player;
     public AudioManager audioManager;
     public int level;
@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         LoadPlayerPos();
     }
 
+    //Back to Main Menu
     public void ResetSavePoint() {
         SaveManager saveManagerPlayer = player.GetComponent<SaveManager>();
         SaveManager saveManagerTimer = GameObject.Find("Timer").GetComponent<SaveManager>();
@@ -24,15 +25,15 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey(saveManagerTimer.saveName);
     }
 
-    public void LoadPos(int level) {
-        SceneManager.LoadScene("Level Design");
-        Transform boxParent = levelGo[level-1].Find("Box");
-        List<Transform> boxs = new List<Transform>();
-        for(int i = 0; i < boxParent.childCount; i++) {
-            boxs.Add(boxParent.GetChild(i).transform);
-            LoadGameFunc(boxs[i], level + "-" + (i+1));
-        }
-    }
+    // private void LoadPos(int level) {
+    //     SceneManager.LoadScene("Level Design");
+    //     Transform boxParent = levelGo[level-1].Find("Box");
+    //     List<Transform> boxs = new List<Transform>();
+    //     for(int i = 0; i < boxParent.childCount; i++) {
+    //         boxs.Add(boxParent.GetChild(i).transform);
+    //         LoadGameFunc(boxs[i], level + "-" + (i+1));
+    //     }
+    // }
     private void LoadPlayerPos() {
         SaveManager saveManagerPlayer = player.GetComponent<SaveManager>();
         if(PlayerPrefs.HasKey(saveManagerPlayer.saveName + "X") && PlayerPrefs.HasKey(saveManagerPlayer.saveName + "Y") && PlayerPrefs.HasKey(saveManagerPlayer.saveName + "Z")) {
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
             print("SavePoint = null");
         }
     }
+
+    //Restart click R
     public void Restart() {
         SceneManager.LoadScene("Level Design");
     }
