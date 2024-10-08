@@ -14,12 +14,21 @@ public class Timer : MonoBehaviour
     // Event yang akan dipanggil ketika waktu habis
     public delegate void TimerFinished();
     public event TimerFinished OnTimerFinished;
+    private SaveManager saveManagerTimer;
 
     private void Start()
     {
+        saveManagerTimer = GetComponent<SaveManager>();
+
+        if(PlayerPrefs.HasKey(saveManagerTimer.name)) {
+            timeRemaining = PlayerPrefs.GetFloat(saveManagerTimer.name);
+            UpdateTimerText();
+        }
+        else {
+            timeRemaining = timeLimit;
+            UpdateTimerText();
+        }
         // Inisialisasi timer
-        timeRemaining = timeLimit;
-        UpdateTimerText();
     }
 
     private void Update()
@@ -53,5 +62,9 @@ public class Timer : MonoBehaviour
     {
         // Panggil event
         OnTimerFinished?.Invoke();
+    }
+
+    public void SavingTimer() {
+        saveManagerTimer.SavingFloat(timeRemaining);
     }
 }
