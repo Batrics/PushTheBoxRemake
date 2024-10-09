@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -38,10 +39,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-
     private void Update() {
-        if (isBoxCollide && isPush && !hasMovedBox) {
-            MoveBox();
+        if (boxRb != null && isBoxCollide && isPush && !hasMovedBox) {
+            TargetMoveBox();
             hasMovedBox = true;
             transform.SetParent(null);
             StartCoroutine(ResetIsPush());
@@ -50,6 +50,13 @@ public class PlayerMovement : MonoBehaviour
         if (boxScript != null) {
             try {
                 boxScript.MoveBox(targetPosBox);
+            } catch (Exception e) {
+                Debug.Log(e.ToString());
+            }
+        }
+        else {
+            try {
+                targetPosBox = boxScript.boxFirstPos;
             } catch (Exception e) {
                 Debug.Log(e.ToString());
             }
@@ -131,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void MoveBox() {
+    private void TargetMoveBox() {
         if (boxScript.boxDir == Vector3.forward && boxScript.canPush) {
             targetPosBox += new Vector3(0f, 0f, boxScript.gridSize.z);
         } else if (boxScript.boxDir == Vector3.back && boxScript.canPush) {
@@ -150,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         hasMovedBox = false;
         rb.transform.SetParent(null);
         yield return new WaitForSeconds(0.5f);
-
+    
         if (playerDirection == boxScript.boxDir) {
             isPush = true;
             StartCoroutine(ResetIsPush());
@@ -183,6 +190,10 @@ public class PlayerMovement : MonoBehaviour
             isBoxCollide = false;
             isPush = false;
             hasMovedBox = false;
+
+            boxRb = null;
+            boxScript = null;
+            // targetPosBox = Vector3.zero;
         }
     }
 

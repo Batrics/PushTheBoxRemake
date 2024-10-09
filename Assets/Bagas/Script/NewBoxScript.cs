@@ -10,8 +10,13 @@ public class NewBoxScript : MonoBehaviour
     public RaycastHit hitInfo;
     public Vector3 playerDir;
     public Vector3 boxDir;
+    public Vector3 boxFirstPos;
     public bool canPush = false;
     public Vector3 gridSize = new Vector3(1f, 0f, 1f); // Ukuran grid
+
+    private void Awake() {
+        boxFirstPos = transform.position;
+    }
 
     private void Update() {
         if (playerMovement != null) {
