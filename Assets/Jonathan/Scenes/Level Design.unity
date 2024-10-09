@@ -2784,6 +2784,7 @@ GameObject:
   - component: {fileID: 67353562}
   - component: {fileID: 67353561}
   - component: {fileID: 67353565}
+  - component: {fileID: 67353566}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2873,6 +2874,7 @@ RectTransform:
   - {fileID: 628644383}
   - {fileID: 56743001}
   - {fileID: 64193325}
+  - {fileID: 1197534878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2894,6 +2896,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 458515577}
   pauseText: {fileID: 1201260931}
+--- !u!114 &67353566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67353560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ef32e7827393b45992c17cc4cbe735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alertImage: {fileID: 932553391}
+  blinkDuration: 0.5
+  timeAtAlphaMax: 1
+  audioManager: {fileID: 1669528749}
+  sfxIndex: 1
 --- !u!1001 &67823485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32702,6 +32721,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7099980798564097261, guid: c6fdf497f2bfae14391973418d8d118a, type: 3}
   m_PrefabInstance: {fileID: 931606112}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &932553389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932553390}
+  - component: {fileID: 932553392}
+  - component: {fileID: 932553391}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &932553390
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932553389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1197534878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &932553391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932553389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.039215688}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &932553392
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932553389}
+  m_CullTransparentMesh: 1
 --- !u!1001 &934476955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43431,6 +43525,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6fdf497f2bfae14391973418d8d118a, type: 3}
+--- !u!1 &1197534877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1197534878}
+  m_Layer: 5
+  m_Name: Alert Warning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1197534878
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197534877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 932553390}
+  m_Father: {fileID: 67353564}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1201260929
 GameObject:
   m_ObjectHideFlags: 0
@@ -64580,8 +64710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72527ea83217cf9498a275ec409859a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 600
+  timeLimit: 302
   timerText: {fileID: 296297569}
+  alertBlink: {fileID: 67353566}
 --- !u!114 &1817290179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76744,6 +76875,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 289414553}
     - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
+      propertyPath: sfxClip.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: musicClip.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -76751,6 +76886,10 @@ PrefabInstance:
       propertyPath: sfxClip.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: a048c7c5e26b85d4fb96bda6d5bf1b8d, type: 3}
+    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
+      propertyPath: sfxClip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e3d0ba7f139245458166bc3693fd9a1, type: 3}
     - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: musicClip.Array.data[0]
       value: 

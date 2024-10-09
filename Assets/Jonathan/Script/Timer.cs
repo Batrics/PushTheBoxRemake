@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI; // Jika menggunakan UI, bisa ditambahkan
-using TMPro; // Pastikan TextMeshPro diimpor
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     // Waktu dalam detik
-    public float timeLimit = 60f; // Ubah sesuai kebutuhan
+    public float timeLimit = 600f; // Ubah sesuai kebutuhan
     private float timeRemaining;
 
     // Referensi ke TextMeshPro untuk menampilkan timer
@@ -14,21 +13,28 @@ public class Timer : MonoBehaviour
     // Event yang akan dipanggil ketika waktu habis
     public delegate void TimerFinished();
     public event TimerFinished OnTimerFinished;
+
+    // Referensi ke SaveManager untuk menyimpan waktu
     private SaveManager saveManagerTimer;
+
+    // Referensi ke AlertBlink untuk memulai kedipan
+    public AlertBlink alertBlink;
+    private bool alertStarted = false; // Untuk memastikan alert hanya dipanggil sekali
 
     private void Start()
     {
         saveManagerTimer = GetComponent<SaveManager>();
 
-        if(PlayerPrefs.HasKey(saveManagerTimer.name)) {
+        if (PlayerPrefs.HasKey(saveManagerTimer.name))
+        {
             timeRemaining = PlayerPrefs.GetFloat(saveManagerTimer.name);
             UpdateTimerText();
         }
-        else {
+        else
+        {
             timeRemaining = timeLimit;
             UpdateTimerText();
         }
-        // Inisialisasi timer
     }
 
     private void Update()
@@ -38,6 +44,13 @@ public class Timer : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
             UpdateTimerText();
+
+            // Cek jika waktu tersisa 5 menit dan belum memulai alert
+            if (timeRemaining <= 300 && !alertStarted)
+            {
+                alertBlink.StartBlink();
+                alertStarted = true; // Pastikan alert hanya dipanggil sekali
+            }
 
             // Cek jika waktu habis
             if (timeRemaining <= 0)
@@ -64,7 +77,8 @@ public class Timer : MonoBehaviour
         OnTimerFinished?.Invoke();
     }
 
-    public void SavingTimer() {
+    public void SavingTimer()
+    {
         saveManagerTimer.SavingFloat(timeRemaining);
     }
 }
