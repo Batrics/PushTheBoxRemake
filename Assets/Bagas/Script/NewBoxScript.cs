@@ -11,14 +11,29 @@ public class NewBoxScript : MonoBehaviour
     public Vector3 playerDir;
     public Vector3 boxDir;
     public Vector3 boxFirstPos;
-    public bool canPush = false;
     public Vector3 gridSize = new Vector3(1f, 0f, 1f); // Ukuran grid
+    public bool canPush = false;
+    public bool hasMovedBox = false;
+    public bool fixBoxPos = true;
 
     private void Awake() {
         boxFirstPos = transform.position;
     }
 
     private void Update() {
+        if(playerMovement != null) {
+            hasMovedBox = playerMovement.hasMovedBox;
+            fixBoxPos = true;
+        }
+        else {
+            hasMovedBox = false;
+        }
+
+        if(!hasMovedBox && fixBoxPos) {
+            fixBoxPos = false;
+            SnapToGrid();
+        }
+
         if (playerMovement != null) {
             bool isCollide = playerMovement.isBoxCollide;
             CreateBoxRaycast(isCollide, boxDir, 1f, wallLayer);
@@ -58,5 +73,18 @@ public class NewBoxScript : MonoBehaviour
 
     public void MoveBox(Vector3 targetPos, float moveSpeed = 5f) {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+    }
+
+    private void SnapToGrid()
+    {
+        // Menghitung posisi snap berdasarkan ukuran grid
+        Vector3 snapPosition = new Vector3(
+            Mathf.Round(transform.position.x),
+            transform.position.y,
+            Mathf.Round(transform.position.z)
+        );
+
+        // Atur posisi box ke posisi snap
+        transform.position = snapPosition;
     }
 }

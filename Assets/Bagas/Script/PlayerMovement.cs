@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isBoxCollide = false;
     public bool pushAnim = false;
     private bool delayRunning = false;
-    private bool hasMovedBox = false;
+    public bool hasMovedBox = false;
     private bool isWalkingSFXPlaying = false;
     private bool isPushingSFXPlaying = false;
     private bool isRestart = false;
