@@ -21,6 +21,15 @@ public class Timer : MonoBehaviour
     public AlertBlink alertBlink;
     private bool alertStarted = false; // Untuk memastikan alert hanya dipanggil sekali
 
+    // GameObject yang akan diaktifkan ketika waktu habis
+    public GameObject objectToActivate;
+    
+    // GameObject kedua yang akan diaktifkan 1 detik sebelum game di-pause
+    public GameObject secondObjectToActivate;
+
+    // Waktu delay sebelum game di-pause setelah GameObject diaktifkan
+    public float pauseDelay = 8f;
+
     private void Start()
     {
         saveManagerTimer = GetComponent<SaveManager>();
@@ -46,7 +55,7 @@ public class Timer : MonoBehaviour
             UpdateTimerText();
 
             // Cek jika waktu tersisa 5 menit dan belum memulai alert
-            if (timeRemaining <= 300 && !alertStarted)
+            if (timeRemaining <= 300 && !alertStarted) // 300 detik = 5 menit
             {
                 alertBlink.StartBlink();
                 alertStarted = true; // Pastikan alert hanya dipanggil sekali
@@ -75,6 +84,35 @@ public class Timer : MonoBehaviour
     {
         // Panggil event
         OnTimerFinished?.Invoke();
+
+        // Aktifkan GameObject pertama ketika waktu habis
+        if (objectToActivate != null)
+        {
+            objectToActivate.SetActive(true);
+            alertBlink.StopBlink();
+            
+            // Aktifkan GameObject kedua 1 detik sebelum game dijeda
+            Invoke("ActivateSecondObject", pauseDelay - 1f);
+
+            // Jalankan coroutine untuk menunda pause game setelah pauseDelay
+            Invoke("PauseGame", pauseDelay);
+        }
+    }
+
+    // Fungsi untuk mengaktifkan GameObject kedua
+    private void ActivateSecondObject()
+    {
+        if (secondObjectToActivate != null)
+        {
+            secondObjectToActivate.SetActive(true);
+        }
+    }
+
+    // Fungsi untuk menjeda game
+    private void PauseGame()
+    {
+        // Pause game dengan mengatur timeScale ke 0
+        Time.timeScale = 0f;
     }
 
     public void SavingTimer()

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Jonathan/Scenes/Main Menu.unity
+    guid: 6d188ced3bd3bc945a8fa2cdefe55f29
+  - enabled: 1
+    path: Assets/Jonathan/Scenes/Opening.unity
+    guid: b5c9957aae92b854e84b876e65b92459
+  - enabled: 1
+    path: Assets/Jonathan/Scenes/Level Design.unity
+    guid: e37b4af511cc41042b5c49df9e76f7d3
   m_configObjects: {}
