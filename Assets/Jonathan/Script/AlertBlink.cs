@@ -34,12 +34,12 @@ public class AlertBlink : MonoBehaviour
 
             // Memutar SFX secara looping
             audioManager.PlaySFX(sfxIndex);
-            audioManager.sfxSource.loop = true; // Loop SFX
+            audioManager.sfxSource.loop = false; // Loop SFX
         }
     }
 
     /// <summary>
-    /// Fungsi untuk menghentikan blink dan menghentikan SFX
+    /// Fungsi untuk menghentikan blink dan menghentikan SFX setelah 1 detik
     /// </summary>
     public void StopBlink()
     {
@@ -48,9 +48,8 @@ public class AlertBlink : MonoBehaviour
             isBlinking = false;
             StopCoroutine(BlinkRoutine());
 
-            // Menghentikan SFX
-            audioManager.sfxSource.loop = false; // Hentikan loop
-            audioManager.StopSFX();
+            // Hentikan SFX setelah 1 detik
+            StartCoroutine(StopSFXAfterDelay(1f));
 
             // Setel alpha kembali ke 0
             SetImageAlpha(0);
@@ -74,6 +73,18 @@ public class AlertBlink : MonoBehaviour
             // Tunggu sebelum memulai kedipan berikutnya
             yield return new WaitForSeconds(blinkDuration);
         }
+    }
+
+    /// <summary>
+    /// Coroutine untuk menghentikan SFX setelah delay
+    /// </summary>
+    private IEnumerator StopSFXAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Menghentikan SFX setelah 1 detik
+        audioManager.sfxSource.loop = false; // Hentikan loop
+        audioManager.StopSFX();
     }
 
     /// <summary>
