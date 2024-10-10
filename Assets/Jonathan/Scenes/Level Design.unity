@@ -11593,6 +11593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaba7e2a308166d4bb089ed5783060a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countValue: 0
+  shouldCount: 0
+  targetCount: 30
+  targetSceneName: 
 --- !u!4 &278244915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3772123772719244867, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
@@ -14031,7 +14035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &354579665
 Transform:
   m_ObjectHideFlags: 0
@@ -40625,7 +40629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1088684679
 Transform:
   m_ObjectHideFlags: 0

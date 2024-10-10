@@ -6324,6 +6324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaba7e2a308166d4bb089ed5783060a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countValue: 0
+  shouldCount: 0
+  targetCount: 30
+  targetSceneName: 
 --- !u!1001 &1582101043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7354,7 +7358,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level Design
+          m_StringArgument: Opening
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1956754881

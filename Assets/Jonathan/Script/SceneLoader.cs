@@ -4,6 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    // Variabel untuk perhitungan
+    public int countValue = 0;
+    public bool shouldCount = false; // Jika true, perhitungan akan dimulai
+    public int targetCount = 30; // Target nilai yang harus dicapai
+    public string targetSceneName; // Nama scene yang akan dimuat ketika countValue mencapai target
+
     /// <summary>
     /// Fungsi untuk memuat scene berdasarkan nama scene.
     /// </summary>
@@ -22,6 +28,7 @@ public class SceneLoader : MonoBehaviour
             Debug.LogError("Nama scene tidak valid atau kosong.");
         }
     }
+
     public void LoadSceneByNameWithDelay(string sceneName)
     {
         if (!string.IsNullOrEmpty(sceneName))
@@ -42,5 +49,30 @@ public class SceneLoader : MonoBehaviour
 
         // Memuat scene setelah waktu tunda
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void Start()
+    {
+        // Jika bool shouldCount true, mulai perhitungan
+        if (shouldCount)
+        {
+            StartCoroutine(CountAndLoadScene());
+        }
+    }
+
+    private IEnumerator CountAndLoadScene()
+    {
+        while (countValue < targetCount)
+        {
+            // Menunggu selama 1 detik setiap kali melakukan perhitungan
+            yield return new WaitForSeconds(1);
+            countValue++;
+
+            // Jika countValue mencapai target, load scene
+            if (countValue >= targetCount)
+            {
+                LoadSceneByName(targetSceneName);
+            }
+        }
     }
 }
