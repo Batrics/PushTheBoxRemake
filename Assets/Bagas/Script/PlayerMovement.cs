@@ -73,51 +73,51 @@ public class PlayerMovement : MonoBehaviour
             gameManager.Restart();
         }
 
-        boxDirTarget = CreateRaycast(.5f, pushLayer);
+        boxDirTarget = CreateRaycast(.27f, pushLayer);
     }
 
     private void FixedUpdate()
-{
-    PlayerLogic(rb);
+    {
+        PlayerLogic(rb);
 
-    // Cek apakah player sedang bergerak
-    if (moveInput != Vector2.zero) 
-    {
-        // Jika SFX berjalan belum dimainkan, mulai memutar
-        if (!isWalkingSFXPlaying) 
+        // Cek apakah player sedang bergerak
+        if (moveInput != Vector2.zero) 
         {
-            audioManager.PlaySFX(0); // Putar SFX berjalan
-            isWalkingSFXPlaying = true; // Tandai bahwa SFX sedang diputar
+            // Jika SFX berjalan belum dimainkan, mulai memutar
+            if (!isWalkingSFXPlaying) 
+            {
+                audioManager.PlaySFX(0); // Putar SFX berjalan
+                isWalkingSFXPlaying = true; // Tandai bahwa SFX sedang diputar
+            }
+        } 
+        else 
+        {
+            // Jika tidak ada input gerakan, hentikan SFX berjalan
+            if (isWalkingSFXPlaying) 
+            {
+                audioManager.StopSFX(); // Hentikan SFX berjalan
+                isWalkingSFXPlaying = false;
+            }
         }
-    } 
-    else 
-    {
-        // Jika tidak ada input gerakan, hentikan SFX berjalan
-        if (isWalkingSFXPlaying) 
+
+        // Memainkan SFX mendorong box jika player sedang mendorong box
+        if (hasMovedBox) 
         {
-            audioManager.StopSFX(); // Hentikan SFX berjalan
-            isWalkingSFXPlaying = false;
+            if (!isPushingSFXPlaying) 
+            {
+                audioManager.PlayMusic(0); // Putar SFX mendorong box
+                isPushingSFXPlaying = true;
+            }
+        } 
+        else 
+        {
+            if (isPushingSFXPlaying)
+            {
+                audioManager.StopSFX(); // Hentikan SFX mendorong box
+                isPushingSFXPlaying = false;
+            }
         }
     }
-
-    // Memainkan SFX mendorong box jika player sedang mendorong box
-    if (hasMovedBox) 
-    {
-        if (!isPushingSFXPlaying) 
-        {
-            audioManager.PlayMusic(0); // Putar SFX mendorong box
-            isPushingSFXPlaying = true;
-        }
-    } 
-    else 
-    {
-        if (isPushingSFXPlaying)
-        {
-            audioManager.StopSFX(); // Hentikan SFX mendorong box
-            isPushingSFXPlaying = false;
-        }
-    }
-}
 
 
     private void PlayerLogic(Rigidbody rb) {
@@ -156,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         isPush = false;
         hasMovedBox = false;
         rb.transform.SetParent(null);
+        transform.position -= new Vector3(boxDirTarget.x - (98.5f/100f * boxDirTarget.x), boxDirTarget.y - (98.5f/100f * boxDirTarget.y), boxDirTarget.z - (98.5f/100f * boxDirTarget.z));
         yield return new WaitForSeconds(0.5f);
     
         if (playerDirection == boxScript.boxDir) {

@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 1744353809801362165}
   - component: {fileID: 256430082521806019}
   - component: {fileID: 284930923986448670}
-  - component: {fileID: 458772599404094123}
   - component: {fileID: 4414982373330884900}
   - component: {fileID: 1976887077396400472}
   - component: {fileID: 5030164406371682018}
   - component: {fileID: 6508493657694100772}
   - component: {fileID: 2140584984871534232}
   - component: {fileID: 2220447885976647445}
+  - component: {fileID: 5404440572104833774}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -100,6 +100,7 @@ MonoBehaviour:
   isPush: 0
   isBoxCollide: 0
   pushAnim: 0
+  hasMovedBox: 0
 --- !u!114 &284930923986448670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,19 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 4325075655497660144}
---- !u!114 &458772599404094123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133380129954683103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4120fd00ab8674488a9e92c4ba87789, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveName: Player
 --- !u!114 &4414982373330884900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +433,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5404440572104833774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133380129954683103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4e418aca5fe4d4591af7bebc76d25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveName: Player
 --- !u!1 &5151101342051003561
 GameObject:
   m_ObjectHideFlags: 0
