@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Jonathan/Scenes/Level Design.unity
     guid: e37b4af511cc41042b5c49df9e76f7d3
+  - enabled: 1
+    path: Assets/Jonathan/Scenes/Clossing.unity
+    guid: cc33786414273e24ea0b22a101e5f0f4
   m_configObjects: {}

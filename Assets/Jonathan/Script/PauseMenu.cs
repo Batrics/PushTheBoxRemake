@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (pauseText != null)
         {
-            pauseText.text = isPaused ? "Continue" : "Pause";
+            pauseText.text = isPaused ? "Continue" : "Menu";
         }
     }
 }
