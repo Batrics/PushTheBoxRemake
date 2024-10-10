@@ -3676,6 +3676,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2103382691048806072, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2848528798337066847, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_Convex
       value: 0
@@ -3937,8 +3941,6 @@ PlayableDirector:
     value: {fileID: 2960072882609199403}
   - key: {fileID: 4008073913259581406, guid: 378dfa632cb28534e9afe66e704f2054, type: 2}
     value: {fileID: 1182328495}
-  - key: {fileID: 9149497007989914621, guid: 378dfa632cb28534e9afe66e704f2054, type: 2}
-    value: {fileID: 1405911305}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &83373921
@@ -26147,7 +26149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &731844632
 Transform:
   m_ObjectHideFlags: 0
@@ -39250,6 +39252,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2045361816}
     m_Modifications:
+    - target: {fileID: 445938938017019757, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1620002588187102210, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -42153,6 +42159,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1855265504}
     m_Modifications:
+    - target: {fileID: 445938938017019757, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1620002588187102210, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -42160,6 +42170,10 @@ PrefabInstance:
     - target: {fileID: 1620002588187102210, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103382691048806072, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2848528798337066847, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_Convex
@@ -46102,7 +46116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1212130751
 Transform:
   m_ObjectHideFlags: 0
@@ -50009,6 +50023,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1576360619}
     m_Modifications:
+    - target: {fileID: 445938938017019757, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1620002588187102210, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -55181,6 +55199,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2103382691048806072, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2848528798337066847, guid: 9a022b5ce12dafb41bfbff05e910dce1, type: 3}
       propertyPath: m_Convex
       value: 0
@@ -57724,8 +57746,6 @@ PlayableDirector:
     value: {fileID: 378071761}
   - key: {fileID: -2599532059691652754, guid: 90e34d323a40cec4a99b7e139e69e2ea, type: 2}
     value: {fileID: 2960072882609199403}
-  - key: {fileID: 2650087943736415044, guid: 90e34d323a40cec4a99b7e139e69e2ea, type: 2}
-    value: {fileID: 1544074401}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1542956795
@@ -68215,7 +68235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1817290177
 RectTransform:
   m_ObjectHideFlags: 0
@@ -71964,8 +71984,6 @@ PlayableDirector:
     value: {fileID: 2960072882609199403}
   - key: {fileID: -8904978454130798063, guid: 35905bbb4c0a89e4db7d729057dbc5ee, type: 2}
     value: {fileID: 1182328495}
-  - key: {fileID: -6390565063291534576, guid: 35905bbb4c0a89e4db7d729057dbc5ee, type: 2}
-    value: {fileID: 460957955}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1891274209 stripped
@@ -72270,8 +72288,6 @@ PlayableDirector:
     value: {fileID: 888543629}
   - key: {fileID: 7048950999156655323, guid: 94c3c4b327136c54abe527d23f38d3ad, type: 2}
     value: {fileID: 2960072882609199403}
-  - key: {fileID: 3715396959206407075, guid: 94c3c4b327136c54abe527d23f38d3ad, type: 2}
-    value: {fileID: 802368788}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1899747900 stripped

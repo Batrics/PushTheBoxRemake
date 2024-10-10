@@ -22,6 +22,7 @@ public class CutsTriggerScript : MonoBehaviour
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             gameManager.level = level;
             PlayDirector(director);
+            print("A");
         }
     }
 

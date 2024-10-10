@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             gameManager.Restart();
         }
 
-        boxDirTarget = CreateRaycast(.27f, pushLayer);
+        boxDirTarget = CreateRaycast(.3f, pushLayer);
     }
 
     private void FixedUpdate()
@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         isPush = false;
         hasMovedBox = false;
         rb.transform.SetParent(null);
-        transform.position -= new Vector3(boxDirTarget.x - (98.5f/100f * boxDirTarget.x), boxDirTarget.y - (98.5f/100f * boxDirTarget.y), boxDirTarget.z - (98.5f/100f * boxDirTarget.z));
+        transform.position -= new Vector3(boxDirTarget.x - (97f/100f * boxDirTarget.x), boxDirTarget.y - (97f/100f * boxDirTarget.y), boxDirTarget.z - (97f/100f * boxDirTarget.z));
         yield return new WaitForSeconds(0.5f);
     
         if (playerDirection == boxScript.boxDir) {
@@ -168,8 +168,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Box")) {
             isBoxCollide = true;
-
-            if (!delayRunning) {
+            pushAnim = playerDirection == boxDirTarget;
+            if (!delayRunning && pushAnim) {
                 StartCoroutine(HandlePushDelay());
             }
 
