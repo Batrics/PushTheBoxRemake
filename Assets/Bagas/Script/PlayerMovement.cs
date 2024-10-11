@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 playerDirection;
     public Vector3 targetPosBox;
     public Rigidbody rb;
-    private NewBoxScript boxScript;
+    public NewBoxScript boxScript;
     private RaycastHit hitInfo;
     public GameObject playerSprite;
     public AudioManager audioManager;
@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if(isFirstFrame) {
             if (!delayRunning && pushAnim) {
                 StartCoroutine(HandlePushDelay());
+                targetPosBox = boxRb.transform.position;
             }
             // boxDirTarget = CreateRaycast(.3f, pushLayer);
 
@@ -195,12 +196,15 @@ public class PlayerMovement : MonoBehaviour
 
             boxRb = collision.rigidbody;
             boxScript = boxRb.GetComponent<NewBoxScript>();
-            targetPosBox = boxRb.transform.position;
+            
         }
     }
 
     private void OnCollisionStay(Collision collision) {
         if (collision.gameObject.CompareTag("Box")) {
+            boxRb = collision.rigidbody;
+            boxScript = boxRb.GetComponent<NewBoxScript>();
+            // targetPosBox = boxRb.transform.position;
             pushAnim = playerDirection == boxScript.boxDir;
         }
     }
