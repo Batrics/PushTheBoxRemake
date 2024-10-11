@@ -34,13 +34,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isWalkingSFXPlaying = false;
     private bool isPushingSFXPlaying = false;
     private bool isRestart = false;
+    public bool isFirstFrame = false;
+    public bool hasPressed = false;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update() {
-        if (boxRb != null && isBoxCollide && isPush && !hasMovedBox) {
+        if (boxRb != null && pushAnim && isPush && !hasMovedBox) {
             TargetMoveBox();
             hasMovedBox = true;
             transform.SetParent(null);
@@ -73,7 +75,28 @@ public class PlayerMovement : MonoBehaviour
             gameManager.Restart();
         }
 
-        boxDirTarget = CreateRaycast(.3f, pushLayer);
+        if(pushAnim && !hasPressed) {
+            isFirstFrame = true;
+            hasPressed = true;
+        }
+        else if(!pushAnim) {
+            hasPressed = false;
+        }
+
+        if(isFirstFrame) {
+            if (!delayRunning && pushAnim) {
+                StartCoroutine(HandlePushDelay());
+            }
+            // boxDirTarget = CreateRaycast(.3f, pushLayer);
+
+            isFirstFrame = false;
+        }
+
+        CreateRaycast(0.3f, pushLayer);
+        if(boxScript != null) {
+            boxScript.boxDir = rayDir;
+        }
+
     }
 
     private void FixedUpdate()
@@ -156,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         isPush = false;
         hasMovedBox = false;
         rb.transform.SetParent(null);
-        transform.position -= new Vector3(boxDirTarget.x - (97f/100f * boxDirTarget.x), boxDirTarget.y - (97f/100f * boxDirTarget.y), boxDirTarget.z - (97f/100f * boxDirTarget.z));
+        // transform.position -= new Vector3(boxDirTarget.x - (97f/100f * boxDirTarget.x), boxDirTarget.y - (97f/100f * boxDirTarget.y), boxDirTarget.z - (97f/100f * boxDirTarget.z));
         yield return new WaitForSeconds(0.5f);
     
         if (playerDirection == boxScript.boxDir) {
@@ -169,9 +192,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Box")) {
             isBoxCollide = true;
             pushAnim = playerDirection == boxDirTarget;
-            if (!delayRunning && pushAnim) {
-                StartCoroutine(HandlePushDelay());
-            }
 
             boxRb = collision.rigidbody;
             boxScript = boxRb.GetComponent<NewBoxScript>();
@@ -181,7 +201,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision collision) {
         if (collision.gameObject.CompareTag("Box")) {
-            pushAnim = playerDirection == boxDirTarget;
+            pushAnim = playerDirection == boxScript.boxDir;
         }
     }
 
@@ -204,8 +224,8 @@ public class PlayerMovement : MonoBehaviour
         isPush = true;
         delayRunning = false;
     }
-
-    private Vector3 CreateRaycast(float rayLength, LayerMask boxLayer) {
+    public Vector3 rayDir;
+    private void CreateRaycast(float rayLength, LayerMask boxLayer) {
         Ray ray = new Ray(new Vector3(transform.position.x, 0.5f, transform.position.z), Vector3.forward);
         Ray ray1 = new Ray(new Vector3(transform.position.x, 0.5f, transform.position.z), Vector3.back);
         Ray ray2 = new Ray(new Vector3(transform.position.x, 0.5f, transform.position.z), Vector3.right);
@@ -214,26 +234,31 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
             Debug.Log("RaycastHitForward");
             Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
-            return ray.direction;
-        } else if (Physics.Raycast(ray1, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
+            rayDir = ray.direction;
+        }
+        else if (Physics.Raycast(ray1, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
             Debug.Log("RaycastHitBack");
             Debug.DrawRay(ray1.origin, ray1.direction * rayLength, Color.red);
-            return ray1.direction;
-        } else if (Physics.Raycast(ray2, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
+            rayDir = ray1.direction;
+        }
+        else if (Physics.Raycast(ray2, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
             Debug.Log("RaycastHitRight");
             Debug.DrawRay(ray2.origin, ray2.direction * rayLength, Color.red);
-            return ray2.direction;
-        } else if (Physics.Raycast(ray3, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
+            rayDir = ray2.direction;
+        }
+        else if (Physics.Raycast(ray3, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
             Debug.Log("RaycastHitLeft");
             Debug.DrawRay(ray3.origin, ray3.direction * rayLength, Color.red);
-            return ray3.direction;
-        } else {
+            rayDir = ray3.direction;
+        }
+        else
+        {
             Debug.Log("Raycast Null");
             Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.blue);
             Debug.DrawRay(ray1.origin, ray1.direction * rayLength, Color.blue);
             Debug.DrawRay(ray2.origin, ray2.direction * rayLength, Color.blue);
             Debug.DrawRay(ray3.origin, ray3.direction * rayLength, Color.blue);
-            return Vector3.zero;
+            rayDir = Vector3.zero;
         }
     }
 
