@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using Unity.VisualScripting;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -196,7 +197,16 @@ public class PlayerMovement : MonoBehaviour
 
             boxRb = collision.rigidbody;
             boxScript = boxRb.GetComponent<NewBoxScript>();
-            
+            SaveManager saveManager = boxRb.GetComponent<SaveManager>();
+
+            TextMeshProUGUI saveTest = GameObject.Find("Test").GetComponent<TextMeshProUGUI>();
+
+            if(PlayerPrefs.HasKey(saveManager.saveName + "X")) {
+                saveTest.text = PlayerPrefs.GetFloat(saveManager.saveName + "X").ToString();
+            }
+            else {
+                saveTest.text = "PlayerPrefs = null";
+            }
         }
     }
 

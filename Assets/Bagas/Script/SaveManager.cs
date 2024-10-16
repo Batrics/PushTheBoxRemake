@@ -7,12 +7,13 @@ public class SaveManager : MonoBehaviour
     public string saveName;
 
     //after cutscene Level
-    private void OnEnable() {
+    private void Start() {
         GameObjectSavingPosition();
     }
     public void GameObjectSavingPosition() {
         NewBoxScript newBoxScript = gameObject.GetComponent<NewBoxScript>();
         SavingPos(newBoxScript.boxFirstPos);
+        PlayerPrefs.Save();
     }
     private void SavingPos(Vector3 position) {
         PlayerPrefs.SetFloat(saveName + "X", position.x);

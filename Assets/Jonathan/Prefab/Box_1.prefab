@@ -163,8 +163,11 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   playerDir: {x: 0, y: 0, z: 0}
   boxDir: {x: 0, y: 0, z: 0}
-  canPush: 0
+  boxFirstPos: {x: 0, y: 0, z: 0}
   gridSize: {x: 1, y: 0, z: 1}
+  canPush: 0
+  hasMovedBox: 0
+  fixBoxPos: 1
 --- !u!114 &2520688815412595150
 MonoBehaviour:
   m_ObjectHideFlags: 0
