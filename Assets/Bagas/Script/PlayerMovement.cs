@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     public bool hasPressed = false;
     public float delayToPush = 0.4f;
     private float timerToPush = 0;
+    int pushStateHash = Animator.StringToHash("Push");
+
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -290,7 +292,10 @@ public class PlayerMovement : MonoBehaviour
 
     //----------------------------------------------------------------------------- Input ------------------------------------------------------------------------------//
     public void OnMove(InputAction.CallbackContext context) {
-        moveInput = context.ReadValue<Vector2>();
+        if (PlayerAnimation.stateInfo != pushStateHash)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
     }
 
     public void OnRestart(InputAction.CallbackContext context) {

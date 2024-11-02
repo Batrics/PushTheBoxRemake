@@ -72,7 +72,7 @@ public class NewBoxScript : MonoBehaviour
     }
 
     public void MoveBox(Vector3 targetPos, float moveSpeed = 5f) {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
     }
 
     private void SnapToGrid()
