@@ -199,14 +199,14 @@ public class PlayerMovement : MonoBehaviour
             boxScript = boxRb.GetComponent<NewBoxScript>();
             SaveManager saveManager = boxRb.GetComponent<SaveManager>();
 
-            TextMeshProUGUI saveTest = GameObject.Find("Test").GetComponent<TextMeshProUGUI>();
+            // TextMeshProUGUI saveTest = GameObject.Find("Test").GetComponent<TextMeshProUGUI>();
 
-            if(PlayerPrefs.HasKey(saveManager.saveName + "X")) {
-                saveTest.text = PlayerPrefs.GetFloat(saveManager.saveName + "X").ToString();
-            }
-            else {
-                saveTest.text = "PlayerPrefs = null";
-            }
+            // if(PlayerPrefs.HasKey(saveManager.saveName + "X")) {
+            //     saveTest.text = PlayerPrefs.GetFloat(saveManager.saveName + "X").ToString();
+            // }
+            // else {
+            //     saveTest.text = "PlayerPrefs = null";
+            // }
         }
     }
 
