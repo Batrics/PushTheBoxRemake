@@ -4992,6 +4992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &110493846
 GameObject:
@@ -6728,6 +6729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: H
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &160352971
 PrefabInstance:
@@ -7280,6 +7282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1773816534}
     m_Modifications:
+    - target: {fileID: 1383403069775462488, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
+      propertyPath: element
+      value: O
+      objectReference: {fileID: 0}
     - target: {fileID: 2520688815412595150, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
       propertyPath: saveName
       value: 1-3
@@ -13110,6 +13116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: H
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &316493720
 PrefabInstance:
@@ -21094,6 +21101,10 @@ PrefabInstance:
       propertyPath: wallLayer.m_Bits
       value: 65
       objectReference: {fileID: 0}
+    - target: {fileID: 1383403069775462488, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
+      propertyPath: element
+      value: H
+      objectReference: {fileID: 0}
     - target: {fileID: 2520688815412595150, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
       propertyPath: saveName
       value: 1-2
@@ -24529,6 +24540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &697060867
 PrefabInstance:
@@ -26444,6 +26456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &733677291 stripped
 Transform:
@@ -28529,6 +28542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &779620998
 PrefabInstance:
@@ -30048,6 +30062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &807542446
 PrefabInstance:
@@ -36070,6 +36085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &963067601 stripped
 GameObject:
@@ -38867,6 +38883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1044229365
 PrefabInstance:
@@ -40668,6 +40685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &1076090676
 GameObject:
@@ -42698,6 +42716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &1127829715 stripped
 Transform:
@@ -42782,6 +42801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &1129515775
 GameObject:
@@ -43943,7 +43963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1165274583
 Transform:
   m_ObjectHideFlags: 0
@@ -44306,6 +44326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &1167908180 stripped
 Transform:
@@ -44678,6 +44699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1173406844
 PrefabInstance:
@@ -44881,6 +44903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1177851603
 PrefabInstance:
@@ -46800,6 +46823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1225661028
 PrefabInstance:
@@ -47347,6 +47371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &1236372311 stripped
 Transform:
@@ -48644,9 +48669,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1773816534}
     m_Modifications:
-    - target: {fileID: 2520688815412595150, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
-      propertyPath: saveName
-      value: 1-1
+    - target: {fileID: 1383403069775462488, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
+      propertyPath: element
+      value: H
       objectReference: {fileID: 0}
     - target: {fileID: 3772123772719244867, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48691,10 +48716,6 @@ PrefabInstance:
     - target: {fileID: 4544860147323567353, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
       propertyPath: m_Name
       value: Box_1 (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544860147323567353, guid: 67c2fc84216bcdd46a67bf868ccbb77c, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50355,6 +50376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: O
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1322577394
 PrefabInstance:
@@ -51779,6 +51801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &1362707282
 GameObject:
@@ -52911,6 +52934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &1404379530 stripped
 Transform:
@@ -53357,6 +53381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1415853438
 PrefabInstance:
@@ -54901,6 +54926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1460466575
 PrefabInstance:
@@ -57437,6 +57463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1530276196
 PrefabInstance:
@@ -60434,6 +60461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1613937029
 PrefabInstance:
@@ -62007,6 +62035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1645911143
 PrefabInstance:
@@ -62829,6 +62858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1668937566
 PrefabInstance:
@@ -63808,6 +63838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1688418705
 PrefabInstance:
@@ -67356,6 +67387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &1773816533
 GameObject:
@@ -70497,6 +70529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1868108498
 PrefabInstance:
@@ -71699,6 +71732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1884661316
 PrefabInstance:
@@ -71844,6 +71878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1886881840
 PrefabInstance:
@@ -72303,6 +72338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &1894736153 stripped
 GameObject:
@@ -73346,6 +73382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &1922553595 stripped
 GameObject:
@@ -73365,6 +73402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &1924039139 stripped
 Transform:
@@ -74331,6 +74369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &1949115825
 PrefabInstance:
@@ -77178,6 +77217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &2033307986 stripped
 Transform:
@@ -77417,6 +77457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &2039831825 stripped
 Transform:
@@ -77830,6 +77871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &2053075481
 PrefabInstance:
@@ -78046,6 +78088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &2054516032
 PrefabInstance:
@@ -80024,6 +80067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &2093679967
 PrefabInstance:
@@ -80290,6 +80334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1 &2105810512
 GameObject:
@@ -80671,6 +80716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!4 &2110571280 stripped
 Transform:
@@ -81320,6 +81366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &2141399587
 PrefabInstance:
@@ -81535,6 +81582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &2146579800
 PrefabInstance:
@@ -82063,6 +82111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClick: 0
+  TargetElement: 
   buttonDoorScript: {fileID: 0}
 --- !u!1001 &5680599319043548661
 PrefabInstance:

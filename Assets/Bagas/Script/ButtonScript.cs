@@ -5,6 +5,7 @@ using UnityEngine;
 public class ButtonScript : MonoBehaviour
 {
     public bool isClick;
+    public string TargetElement;
     public ButtonDoorScript buttonDoorScript;
 
     private void Start() {
@@ -13,14 +14,20 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Box")) {
-            isClick = true;
-            buttonDoorScript.clickedInt++;
+            BoxElement boxElement = other.GetComponent<BoxElement>();
+            if(TargetElement == boxElement.element) {
+                isClick = true;
+                buttonDoorScript.clickedInt++;
+            }
         }
     }
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.CompareTag("Box")) {
-            isClick = false;
-            buttonDoorScript.clickedInt--;
+            BoxElement boxElement = other.GetComponent<BoxElement>();
+            if(TargetElement == boxElement.element) {
+                isClick = false;
+                buttonDoorScript.clickedInt--;
+            }
         }
     }
 }
