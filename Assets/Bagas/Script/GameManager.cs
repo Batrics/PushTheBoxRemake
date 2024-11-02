@@ -106,4 +106,9 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("No more levels available.");
         }
     }
+
+    public void triggerWin()
+    {
+        WinUIManager.instance.triggerWin();
+    }
 }
