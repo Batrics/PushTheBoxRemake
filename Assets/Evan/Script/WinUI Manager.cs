@@ -1,18 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinUIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static WinUIManager instance;
+    [SerializeField] private GameObject content;
+
+
+    private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void triggerWin()
     {
-        
+       content.SetActive(true);
     }
+
+    public void nextLevel()
+    {
+        GameManager.Instance.NextLevel();
+    }
+
+    public void restart()
+    {
+        GameManager.Instance.Restart();
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

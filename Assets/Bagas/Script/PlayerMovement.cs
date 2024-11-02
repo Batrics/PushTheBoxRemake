@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isRestart = false;
     public bool isFirstFrame = false;
     public bool hasPressed = false;
+    public float delayToPush = 0.4f;
+    private float timerToPush = 0;
 
     private void Awake() {
         rb = GetComponent<Rigidbody>();
@@ -67,8 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isBoxCollide && !isPush && hasMovedBox) {
             if (moveInput != Vector2.zero) {
-                isPush = true;
-                StartCoroutine(ResetIsPush());
+                TryToPush();
             }
         }
 
@@ -144,6 +145,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void TryToPush()
+    {
+        timerToPush += Time.deltaTime;
+        if (timerToPush > delayToPush)
+        {
+            isPush = true;
+            StartCoroutine(ResetIsPush());
+        }
+    }
+
 
     private void PlayerLogic(Rigidbody rb) {
         Transform cameraTransform = Camera.main.transform;
@@ -179,14 +190,14 @@ public class PlayerMovement : MonoBehaviour
         rb.transform.SetParent(boxRb.transform);
         yield return new WaitForSeconds(0.5f);
         isPush = false;
+        timerToPush = 0;
         hasMovedBox = false;
         rb.transform.SetParent(null);
         // transform.position -= new Vector3(boxDirTarget.x - (97f/100f * boxDirTarget.x), boxDirTarget.y - (97f/100f * boxDirTarget.y), boxDirTarget.z - (97f/100f * boxDirTarget.z));
         yield return new WaitForSeconds(0.5f);
     
         if (playerDirection == boxScript.boxDir) {
-            isPush = true;
-            StartCoroutine(ResetIsPush());
+            TryToPush();
         }
     }
 
@@ -224,6 +235,7 @@ public class PlayerMovement : MonoBehaviour
             pushAnim = false;
             isBoxCollide = false;
             isPush = false;
+            timerToPush = 0;
             hasMovedBox = false;
 
             boxRb = null;
