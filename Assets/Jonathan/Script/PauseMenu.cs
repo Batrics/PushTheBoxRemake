@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 1f; // Hentikan waktu
+        Time.timeScale = 0f; // Hentikan waktu
         isPaused = true;
         UpdatePauseText();
     }
