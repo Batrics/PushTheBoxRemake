@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     // Move to the next level
     public void NextLevel()
     {
-        levelGo[level].gameObject.SetActive(false);
+        
         Debug.Log("its on nextlevel function");
         level++; // Increment the level counter
         if (level <= levelGo.Count)
