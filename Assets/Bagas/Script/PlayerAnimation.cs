@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     public Animator playerAnimator;
+    public static int stateInfo;
     private PlayerMovement playerMovement;
 
     private void Start() {
@@ -12,7 +13,10 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     private void Update() {
+        AnimatorStateInfo currentState = playerAnimator.GetCurrentAnimatorStateInfo(0); 
+        stateInfo = currentState.shortNameHash;
         if(playerMovement != null) {
+            
             Vector2 dir = new Vector2(playerMovement.boxDirTarget.x, playerMovement.boxDirTarget.z);
             
             if(playerMovement.moveInput != Vector2.zero) {
