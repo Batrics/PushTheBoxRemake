@@ -7,11 +7,13 @@ public class PlayerMovement2 : MonoBehaviour
     public Vector3 moveDirection;
     public Vector3 playerDirection;
     public Vector3 moveDirectionRelativeToCamera;
+    
     private Rigidbody rb;
 
     public float moveSpeed = 5f;        // Kecepatan gerakan player
     private bool isRestart = false;
     private bool pushAnim = false;
+    private MoveBox moveBox;
 
 
     public Camera mainCamera; // Referensi ke kamera utama
@@ -19,6 +21,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Start()
     {
+        moveBox = GetComponent<MoveBox>();
         // Membuat GameObject baru untuk menyimpan transformasi
         GameObject camDummyObject = new GameObject("DummyTransform");
         cameraTransform = camDummyObject.transform;
@@ -88,20 +91,35 @@ public class PlayerMovement2 : MonoBehaviour
     public static int stateInfo;
     int pushStateHash = Animator.StringToHash("Push");
 
-    private void Animation() {
-        AnimatorStateInfo currentState = playerAnimator.GetCurrentAnimatorStateInfo(0); 
-        stateInfo = currentState.shortNameHash;
-        
-        // Vector2 dir = new Vector2(playerMovement.boxDirTarget.x, playerMovement.boxDirTarget.z);
-        
-        if(moveInput != Vector2.zero) {
-            playerAnimator.SetBool("Walk", true);
+    private void Animation()
+{
+    AnimatorStateInfo currentState = playerAnimator.GetCurrentAnimatorStateInfo(0); 
+    stateInfo = currentState.shortNameHash;
+    
+    // Periksa jika player bergerak
+    if(moveInput != Vector2.zero) 
+    {
+        playerAnimator.SetBool("Walk", true);
+
+        // Cek arah gerakan untuk mengatur flip sprite
+        if (moveInput.x > 0) // Player bergerak ke kanan
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Set flip normal
         }
-        else {
-            playerAnimator.SetBool("Walk", false);
+        else if (moveInput.x < 0) // Player bergerak ke kiri
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // Flip sprite ke kiri
         }
-        playerAnimator.SetBool("Push", pushAnim);
     }
+    else 
+    {
+        playerAnimator.SetBool("Walk", false);
+    }
+
+    // Cek apakah player sedang dalam kondisi push
+    playerAnimator.SetBool("Push", moveBox.isPush);
+}
+
 
     //----------------------------------------------------------------------------- Input ------------------------------------------------------------------------------//
     public void OnMove(InputAction.CallbackContext context)
