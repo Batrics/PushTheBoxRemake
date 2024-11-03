@@ -9,7 +9,6 @@ public class BoxScript2 : MonoBehaviour
     public Vector3 targetPos;
     public RaycastHit hitInfo;
     public float speed;
-    public Vector3 boxFirstPos;
     [SerializeField] private MoveBox moveBox;
     [SerializeField] private PlayerMovement2 playerMovement2;
     [SerializeField] private Vector3 dir;
@@ -18,8 +17,6 @@ public class BoxScript2 : MonoBehaviour
     }
     private void Update() {
         MoveBox(targetPos);
-
-        boxFirstPos = transform.position;
     }
     
     private void MoveBox(Vector3 targetPos) {

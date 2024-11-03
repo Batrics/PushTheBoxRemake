@@ -5,14 +5,15 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
     public string saveName;
+    public Vector3 boxFirstPos;
 
     //after cutscene Level
     private void Start() {
+        boxFirstPos =  transform.position;
         GameObjectSavingPosition();
     }
     public void GameObjectSavingPosition() {
-        BoxScript2 BoxScript2 = gameObject.GetComponent<BoxScript2>();
-        SavingPos(BoxScript2.boxFirstPos);
+        SavingPos(boxFirstPos);
         PlayerPrefs.Save();
     }
     private void SavingPos(Vector3 position) {

@@ -9,6 +9,7 @@ public class PlayerMovement2 : MonoBehaviour
     public Vector3 moveDirectionRelativeToCamera;
     public GameManager gameManager;
     private Rigidbody rb;
+    public Vector3 firstPosPoint;
 
     public float moveSpeed = 5f;        // Kecepatan gerakan player
     private bool isRestart = false;
@@ -22,6 +23,7 @@ public class PlayerMovement2 : MonoBehaviour
     private void Start()
     {
         moveBox = GetComponent<MoveBox>();
+        firstPosPoint = transform.position;
         // Membuat GameObject baru untuk menyimpan transformasi
         GameObject camDummyObject = new GameObject("DummyTransform");
         cameraTransform = camDummyObject.transform;

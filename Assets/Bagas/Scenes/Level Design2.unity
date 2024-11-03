@@ -8670,7 +8670,7 @@ MonoBehaviour:
   - {fileID: 237424239}
   - {fileID: 425546436}
   - {fileID: 480356096}
-  player: {fileID: 0}
+  player: {fileID: 1775839175}
   audioManager: {fileID: 1232414182}
   level: 0
 --- !u!4 &573611164
@@ -11549,6 +11549,10 @@ PrefabInstance:
       propertyPath: playerMovement2
       value: 
       objectReference: {fileID: 1775839165}
+    - target: {fileID: 3753394756743187881, guid: 75177ca13ebdd9249b9dbcfb4249f4f7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 552887423116881197, guid: 2ac94b05f9631354885ae8687918a51c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12820,6 +12824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveName: Timer
+  boxFirstPos: {x: 0, y: 0, z: 0}
 --- !u!114 &834717909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24562,7 +24567,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 258486094165618159, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.041422
+      value: -1.709
       objectReference: {fileID: 0}
     - target: {fileID: 258486094165618159, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24570,7 +24575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 258486094165618159, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.98411995
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 258486094165618159, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24608,6 +24613,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 481227307}
+    - target: {fileID: 7924840402267408862, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 573611163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24635,6 +24644,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94267f4c373eaf243b96736b0b3215ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1775839175 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 258486094165618159, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
+  m_PrefabInstance: {fileID: 1775839163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1779647536
 PrefabInstance:
   m_ObjectHideFlags: 0
