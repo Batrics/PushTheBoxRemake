@@ -24,16 +24,19 @@ public class ButtonDoorScript : MonoBehaviour
         } else {
             allButtonClicked = false;
         }
+        DOVirtual.DelayedCall(1.5f, () =>
+        {
+            if (allButtonClicked && !open)
+            {
 
-        if (allButtonClicked && !open) {
-            dOTweenAnimation.DORestart(); // Restart to make sure it resets correctly
-            dOTweenAnimation.DOPlay();    // Play the animation forward
-            open = true; // mark the door as open
-        }
-        else if (!allButtonClicked && open) {
-            // dOTweenAnimation.DORestart(); // Restart the animation to reset it
-            dOTweenAnimation.DOPlayBackwards(); // Play the animation backwards to close the door
-            open = false; // mark the door as closed
-        }
+                open = true; // mark the door as open
+            }
+            else if (!allButtonClicked && open)
+            {
+                open = false; // mark the door as closed
+            }
+            GameManager.Instance.triggerWin();
+        });
+
     }
 }

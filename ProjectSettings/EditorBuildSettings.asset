@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Jonathan/Scenes/Level Design.unity
     guid: e37b4af511cc41042b5c49df9e76f7d3
   - enabled: 1
+    path: Assets/Bagas/Scenes/Level Design2.unity
+    guid: 90ca981f27cc9b040b8c8fb0e144a794
+  - enabled: 1
     path: Assets/Jonathan/Scenes/Clossing.unity
     guid: cc33786414273e24ea0b22a101e5f0f4
   m_configObjects: {}

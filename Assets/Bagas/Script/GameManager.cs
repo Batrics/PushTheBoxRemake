@@ -85,13 +85,19 @@ public class GameManager : MonoBehaviour
     {
         
         Debug.Log("its on nextlevel function");
+        levelGo[level].gameObject.SetActive(false);
         level++; // Increment the level counter
+        if (level == 3)
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         if (level <= levelGo.Count)
         {
             LoadPos(level); // Load saved positions for objects in the new level
 
             // Find the player's start position in the new level
-            Transform playerStartPos = levelGo[level - 1].Find("PlayerStartPos");
+            Transform playerStartPos = levelGo[level].Find("PlayerStartPos");
+            levelGo[level].gameObject.SetActive(true);
             if (playerStartPos != null)
             {
                 player.position = playerStartPos.position; // Set the player's position to the start position

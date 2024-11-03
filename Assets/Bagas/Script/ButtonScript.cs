@@ -14,7 +14,7 @@ public class ButtonScript : MonoBehaviour
 
     private void Start()
     {
-        buttonDoorScript = transform.parent.GetComponent<ButtonDoorScript>();
+        buttonDoorScript = transform.parent.GetComponent<ButtonDoorScript>();   
         buttonRenderer = GetComponent<Renderer>(); // Get the Renderer component
         if (buttonRenderer != null)
         {
