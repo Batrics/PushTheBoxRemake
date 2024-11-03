@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     // Restart click R
     public void Restart()
     {
+        Debug.Log("restarttt");
         // Load the player's saved position, if any
         SetPlayerToStartPosition(level);
 

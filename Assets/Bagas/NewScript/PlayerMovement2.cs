@@ -7,7 +7,7 @@ public class PlayerMovement2 : MonoBehaviour
     public Vector3 moveDirection;
     public Vector3 playerDirection;
     public Vector3 moveDirectionRelativeToCamera;
-    
+    public GameManager gameManager;
     private Rigidbody rb;
 
     public float moveSpeed = 5f;        // Kecepatan gerakan player
@@ -44,6 +44,9 @@ public class PlayerMovement2 : MonoBehaviour
 
     private void Update()
     {
+        if(isRestart) {
+            gameManager.Restart();
+        }
         MovePlayer();
         Animation();
     }

@@ -299,6 +299,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void OnRestart(InputAction.CallbackContext context) {
+        Debug.Log("tooood");
         isRestart = context.performed;
     }
 }
