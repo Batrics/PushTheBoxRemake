@@ -8752,7 +8752,7 @@ MonoBehaviour:
   - {fileID: 480356096}
   player: {fileID: 1775839175}
   audioManager: {fileID: 1232414182}
-  level: 2
+  level: 0
 --- !u!4 &573611164
 Transform:
   m_ObjectHideFlags: 0
