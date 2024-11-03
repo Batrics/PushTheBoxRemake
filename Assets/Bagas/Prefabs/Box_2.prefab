@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551407b679bf82749bce6f397a0ab3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  element: O
+  element: 
 --- !u!114 &1380691393713461322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +204,7 @@ MonoBehaviour:
     m_Bits: 65
   targetPos: {x: 0, y: 0, z: 0}
   speed: 3
+  boxFirstPos: {x: 0, y: 0, z: 0}
   moveBox: {fileID: 0}
   playerMovement2: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}

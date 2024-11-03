@@ -110,7 +110,7 @@ public class MoveBox : MonoBehaviour
             }
         }
         else if (Physics.Raycast(ray3, out hitInfo, rayLength, boxLayer, QueryTriggerInteraction.UseGlobal)) {
-            ray2.origin += -playerMovement2.cameraTransform.right + -playerMovement2.cameraTransform.right / 18f;
+            ray3.origin += -playerMovement2.cameraTransform.right + -playerMovement2.cameraTransform.right / 18f;
             Debug.Log("RaycastHitLeft");
             Debug.DrawRay(ray3.origin, ray3.direction * rayLength, Color.red);
             rayDir = ray3.direction;

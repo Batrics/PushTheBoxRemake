@@ -11,8 +11,8 @@ public class SaveManager : MonoBehaviour
         GameObjectSavingPosition();
     }
     public void GameObjectSavingPosition() {
-        NewBoxScript newBoxScript = gameObject.GetComponent<NewBoxScript>();
-        SavingPos(newBoxScript.boxFirstPos);
+        BoxScript2 BoxScript2 = gameObject.GetComponent<BoxScript2>();
+        SavingPos(BoxScript2.boxFirstPos);
         PlayerPrefs.Save();
     }
     private void SavingPos(Vector3 position) {
