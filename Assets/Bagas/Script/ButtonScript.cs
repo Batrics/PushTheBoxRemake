@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,18 @@ public class ButtonScript : MonoBehaviour
 
     private void Start()
     {
-        buttonDoorScript = transform.parent.GetComponent<ButtonDoorScript>();   
+        StartCoroutine(InitializeButtonDoorScript());
+    }
+
+    private IEnumerator InitializeButtonDoorScript()
+    {
+        // Wait until the ButtonDoorScript component is found in the parent
+        while (buttonDoorScript == null)
+        {
+            buttonDoorScript = transform.parent.GetComponent<ButtonDoorScript>();
+            yield return null; // Wait for the next frame
+        }
+
         buttonRenderer = GetComponent<Renderer>(); // Get the Renderer component
         if (buttonRenderer != null)
         {
@@ -25,9 +37,18 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Box"))
         {
             BoxElement boxElement = other.GetComponent<BoxElement>();
+            DOVirtual.DelayedCall(1.5f, () =>
+            {
+                if (buttonDoorScript.open == true)
+                {
+                    GameManager.Instance.triggerWin();
+                }
+            });
+
             if (TargetElement == boxElement.element)
             {
                 AudioManager.instance.PlaySFX(2);

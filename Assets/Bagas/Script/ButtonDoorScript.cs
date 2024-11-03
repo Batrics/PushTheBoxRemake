@@ -24,19 +24,14 @@ public class ButtonDoorScript : MonoBehaviour
         } else {
             allButtonClicked = false;
         }
-        DOVirtual.DelayedCall(1.5f, () =>
-        {
             if (allButtonClicked && !open)
             {
-
                 open = true; // mark the door as open
             }
             else if (!allButtonClicked && open)
             {
                 open = false; // mark the door as closed
             }
-            GameManager.Instance.triggerWin();
-        });
 
     }
 }
