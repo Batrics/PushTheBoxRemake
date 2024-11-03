@@ -2977,7 +2977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &237424239
 Transform:
   m_ObjectHideFlags: 0
@@ -8672,7 +8672,7 @@ MonoBehaviour:
   - {fileID: 480356096}
   player: {fileID: 1775839175}
   audioManager: {fileID: 1232414182}
-  level: 0
+  level: 2
 --- !u!4 &573611164
 Transform:
   m_ObjectHideFlags: 0
@@ -13108,7 +13108,7 @@ Transform:
   m_GameObject: {fileID: 854070135}
   serializedVersion: 2
   m_LocalRotation: {x: -0.27676207, y: -0.63805354, z: -0.26429072, w: 0.66816235}
-  m_LocalPosition: {x: -2.776, y: 0.3189, z: -1.26}
+  m_LocalPosition: {x: -2.03, y: 0.3189, z: -1.26}
   m_LocalScale: {x: 0.057059996, y: 0.05706, z: 0.057059996}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18451,11 +18451,11 @@ PrefabInstance:
     - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: musicClip.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 6201b800ca0c6e0499144e9a3fa77870, type: 3}
+      objectReference: {fileID: 8300000, guid: d305c14251510b64183d9d814140fceb, type: 3}
     - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: musicClip.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: eb409ba8937df204cbfa844361af86e7, type: 3}
+      objectReference: {fileID: 8300000, guid: d305c14251510b64183d9d814140fceb, type: 3}
     - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: musicClip.Array.data[2]
       value: 
@@ -24617,6 +24617,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 573611163}
+    - target: {fileID: 8337416654629808018, guid: 27d7aafc7b28c9042acc742f7bf649ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
