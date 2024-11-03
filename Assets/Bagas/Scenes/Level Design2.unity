@@ -12809,7 +12809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1937889500}
-  alertBlink: {fileID: 1259081483}
+  alertBlink: {fileID: 0}
   objectToActivate: {fileID: 0}
   secondObjectToActivate: {fileID: 1432242445}
   pauseDelay: 8
@@ -19019,7 +19019,6 @@ GameObject:
   - component: {fileID: 1259081486}
   - component: {fileID: 1259081485}
   - component: {fileID: 1259081484}
-  - component: {fileID: 1259081483}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -19027,23 +19026,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1259081483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259081482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ef32e7827393b45992c17cc4cbe735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alertImage: {fileID: 1189073038}
-  blinkDuration: 0.5
-  timeAtAlphaMax: 1
-  audioManager: {fileID: 1232414182}
-  sfxIndex: 1
 --- !u!114 &1259081484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29619,7 +29601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2142521214
 RectTransform:
   m_ObjectHideFlags: 0

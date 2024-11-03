@@ -43,16 +43,16 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        // Tingkatkan waktu yang telah berlalu
-        elapsedTime += Time.deltaTime;
-        UpdateTimerText();
+        // // Tingkatkan waktu yang telah berlalu
+        // elapsedTime += Time.deltaTime;
+        // UpdateTimerText();
 
-        // Cek jika waktu telah mencapai 5 menit dan belum memulai alert
-        if (elapsedTime >= 300f && !alertStarted) // 300 detik = 5 menit
-        {
-            alertBlink.StartBlink();
-            alertStarted = true;
-        }
+        // // Cek jika waktu telah mencapai 5 menit dan belum memulai alert
+        // if (elapsedTime >= 300f && !alertStarted) // 300 detik = 5 menit
+        // {
+        //     alertBlink.StartBlink();
+        //     alertStarted = true;
+        // }
     }
 
     // Memperbarui tampilan timer
