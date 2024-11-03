@@ -27,8 +27,17 @@ public class AudioManager : MonoBehaviour
     public TextMeshProUGUI musicStatusText;
     public TextMeshProUGUI sfxStatusText;
 
+    public static AudioManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
     private void Start()
     {
+        
         // Load saved settings from PlayerPrefs
         LoadAudioSettings();
 

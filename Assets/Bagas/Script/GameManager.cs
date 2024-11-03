@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
         }
-
     }
 
     private void Start()
@@ -39,7 +38,7 @@ public class GameManager : MonoBehaviour
     private void LoadPos(int level)
     {
         // SceneManager.LoadScene("Level Design");
-        Transform boxParent = levelGo[level - 1].Find("Box");
+        Transform boxParent = levelGo[level].Find("Box");
         List<Transform> boxs = new List<Transform>();
         for (int i = 0; i < boxParent.childCount; i++)
         {
@@ -48,27 +47,46 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void LoadPlayerPos()
+    private bool LoadPlayerPos()
     {
         SaveManagerPlayer saveManagerPlayer = player.GetComponent<SaveManagerPlayer>();
-        if (PlayerPrefs.HasKey(saveManagerPlayer.saveName + "X") && PlayerPrefs.HasKey(saveManagerPlayer.saveName + "Y") && PlayerPrefs.HasKey(saveManagerPlayer.saveName + "Z"))
+        if (PlayerPrefs.HasKey(saveManagerPlayer.saveName + "X") &&
+            PlayerPrefs.HasKey(saveManagerPlayer.saveName + "Y") &&
+            PlayerPrefs.HasKey(saveManagerPlayer.saveName + "Z"))
         {
             LoadGameFunc(player, saveManagerPlayer.saveName);
-            print("X : " + PlayerPrefs.GetFloat(saveManagerPlayer.saveName + "X"));
-            print("Y : " + PlayerPrefs.GetFloat(saveManagerPlayer.saveName + "Y"));
-            print("Z : " + PlayerPrefs.GetFloat(saveManagerPlayer.saveName + "Z"));
+            Debug.Log("Player position loaded from save data.");
+            return true;
         }
         else
         {
-            print("SavePoint = null");
+            Debug.Log("No saved position for player.");
+            return false;
         }
     }
 
     // Restart click R
     public void Restart()
     {
-        LoadPlayerPos();
+        // Load the player's saved position, if any
+        SetPlayerToStartPosition(level);
+
+        // Load the positions of other objects in the level
         LoadPos(level);
+    }
+
+    private void SetPlayerToStartPosition(int level)
+    {
+        Transform playerStartPos = levelGo[level].Find("PlayerStartPos");
+        if (playerStartPos != null)
+        {
+            player.position = playerStartPos.position;
+            Debug.Log("Player position set to start position.");
+        }
+        else
+        {
+            Debug.LogWarning("PlayerStartPos not found in level " + level);
+        }
     }
 
     private void LoadGameFunc(Transform transformGo, string saveName)
@@ -83,15 +101,20 @@ public class GameManager : MonoBehaviour
     // Move to the next level
     public void NextLevel()
     {
-        
         Debug.Log("its on nextlevel function");
+        levelGo[level].gameObject.SetActive(false);
         level++; // Increment the level counter
+        if (level == 3)
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         if (level <= levelGo.Count)
         {
             LoadPos(level); // Load saved positions for objects in the new level
 
             // Find the player's start position in the new level
-            Transform playerStartPos = levelGo[level - 1].Find("PlayerStartPos");
+            Transform playerStartPos = levelGo[level].Find("PlayerStartPos");
+            levelGo[level].gameObject.SetActive(true);
             if (playerStartPos != null)
             {
                 player.position = playerStartPos.position; // Set the player's position to the start position
