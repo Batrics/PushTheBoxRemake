@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7692545004721861378}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,9 +50,12 @@ MonoBehaviour:
   musicSource: {fileID: 6450688997767970920}
   sfxSource: {fileID: 7692545004721861378}
   musicClip:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d305c14251510b64183d9d814140fceb, type: 3}
   sfxClip:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: a048c7c5e26b85d4fb96bda6d5bf1b8d, type: 3}
+  - {fileID: 8300000, guid: 5e3d0ba7f139245458166bc3693fd9a1, type: 3}
+  - {fileID: 8300000, guid: 6aa8479813b441b4e874e11ce7d9d971, type: 3}
+  - {fileID: 8300000, guid: b0f17ddc9dd763f47ad956009437bbdc, type: 3}
   musicStatusText: {fileID: 0}
   sfxStatusText: {fileID: 0}
 --- !u!82 &6450688997767970920
@@ -161,7 +164,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6323792080642696444, guid: d58892eee14b24b49b6e1f6122f7a128, type: 2}
-  m_audioClip: {fileID: 8300000, guid: eb409ba8937df204cbfa844361af86e7, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

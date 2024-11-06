@@ -8,6 +8,7 @@ TagManager:
   - Box
   - Button
   - Cuts
+  - AudioManager
   layers:
   - Default
   - TransparentFX

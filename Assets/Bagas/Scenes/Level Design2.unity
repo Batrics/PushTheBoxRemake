@@ -18427,42 +18427,6 @@ PrefabInstance:
       propertyPath: musicStatusText
       value: 
       objectReference: {fileID: 441856134}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: sfxClip.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: musicClip.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: sfxClip.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: a048c7c5e26b85d4fb96bda6d5bf1b8d, type: 3}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: sfxClip.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5e3d0ba7f139245458166bc3693fd9a1, type: 3}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: sfxClip.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 6aa8479813b441b4e874e11ce7d9d971, type: 3}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: sfxClip.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: b0f17ddc9dd763f47ad956009437bbdc, type: 3}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: musicClip.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: d305c14251510b64183d9d814140fceb, type: 3}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: musicClip.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: d305c14251510b64183d9d814140fceb, type: 3}
-    - target: {fileID: 898273944767030004, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: musicClip.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 05f2e68d04e44cc4a88f9c885d93b085, type: 3}
     - target: {fileID: 2505001472669878438, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -18506,10 +18470,6 @@ PrefabInstance:
     - target: {fileID: 3970579669801427884, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692545004721861378, guid: 9321f63d1fee8914bac8b88a3fcbd0dd, type: 3}
-      propertyPath: m_audioClip
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

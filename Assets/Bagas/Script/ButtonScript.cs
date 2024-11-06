@@ -12,10 +12,12 @@ public class ButtonScript : MonoBehaviour
     // New field for default material color
     public Color defaultColor = Color.white; // Default color
     private Renderer buttonRenderer; // Renderer to change material color
+    private AudioManager audioManager;
 
     private void Start()
     {
         StartCoroutine(InitializeButtonDoorScript());
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     private IEnumerator InitializeButtonDoorScript()
@@ -51,7 +53,7 @@ public class ButtonScript : MonoBehaviour
 
             if (TargetElement == boxElement.element)
             {
-                AudioManager.instance.PlaySFX(2);
+                audioManager.PlaySFX(2);
                 isClick = true;
                 buttonDoorScript.clickedInt++;
 
@@ -63,7 +65,7 @@ public class ButtonScript : MonoBehaviour
             }
             else
             {
-                AudioManager.instance.PlaySFX(3);
+                audioManager.PlaySFX(3);
             }
         }
     }
